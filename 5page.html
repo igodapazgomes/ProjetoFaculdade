@@ -1,39 +1,48 @@
-<!DOCTYPE html> <!-- Define que o documento é HTML5 -->
-<html lang="pt-br"> <!-- Define o idioma da página como português do Brasil -->
-
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">  <!-- Define a codificação de caracteres como UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Torna a página responsiva em dispositivos móveis -->
-  <title>Meu Projeto ADS</title> <!-- Título da aba do navegador -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Importa ícones da biblioteca Font Awesome -->
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Projeto ADS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="imagens/vscode.png" type="image/x-icon">
   <style>
-    * { /* Reset básico e fonte padrão */
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    body { /* Estilo geral do corpo da página */
-      background-color: #f4f4f4;
+    body {
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
       color: #333;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    header { /* Estilo do cabeçalho */
+    header {
       background-color: #0077cc;
-      color: rgb(245, 241, 241);
+      color: white;
       padding: 20px;
       text-align: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    nav { /* Estilo da barra de navegação */
+    header h1 {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    nav {
       background-color: #005fa3;
     }
 
-    nav ul { /* Lista de links do menu */
+    nav ul {
       list-style: none;
       display: flex;
       flex-wrap: wrap;
@@ -42,7 +51,7 @@
       gap: 20px;
     }
 
-    nav a { /* Estilo dos links do menu */
+    nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
@@ -51,24 +60,24 @@
       transition: background-color 0.3s ease;
     }
 
-    nav a:hover { /* Efeito ao passar o mouse nos links */
+    nav a:hover {
       background-color: #004080;
     }
 
-    main { /* Área principal do conteúdo */
+    main {
       padding: 40px 20px;
       max-width: 1200px;
       margin: auto;
     }
 
-    .logout-btn { /* Botão de logout fixo no canto superior direito */
+    .logout-btn {
       position: fixed;
       top: 20px;
       right: 20px;
       z-index: 1000;
     }
 
-    .logout-btn button { /* Estilo do botão de logout */
+    .logout-btn button {
       padding: 10px 20px;
       background-color: #cc0000;
       color: white;
@@ -78,7 +87,7 @@
       font-size: 14px;
     }
 
-    .grid-container { /* Container que organiza os cards em grade */
+    .grid-container {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
@@ -86,27 +95,28 @@
       margin-top: 40px;
     }
 
-    .card { /* Estilo dos cards de conteúdo */
+    .card {
       flex: 1 1 300px;
       background-color: #fff;
       padding: 30px;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
       text-align: center;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    .card ul { /* Estilo das listas dentro dos cards */
+    .card ul {
       list-style: disc;
       text-align: left;
       padding-left: 20px;
     }
 
-    .card img { /* Estilo da imagem dentro dos cards */
+    .card img {
       width: 100px;
       margin-bottom: 20px;
     }
 
-    .card input, .card button { /* Estilo dos inputs e botões dentro dos cards */
+    .card input, .card button {
       width: 90%;
       padding: 10px;
       margin-top: 10px;
@@ -114,7 +124,11 @@
       border: 1px solid #ccc;
     }
 
-    .card button { /* Estilo específico do botão dentro dos cards */
+    .card input::placeholder {
+      color: #999;
+    }
+
+    .card button {
       background-color: #0077cc;
       color: white;
       border: none;
@@ -122,18 +136,38 @@
       cursor: pointer;
     }
 
-    .social-icons { /* Container dos ícones de redes sociais */
+    .social-icons {
       display: flex;
       justify-content: center;
       gap: 40px;
       margin-top: 20px;
     }
 
-    .social-icons a { /* Estilo dos ícones sociais */
+    .social-icons a {
       font-size: 40px;
+      transition: transform 0.3s;
     }
 
-    footer { /* Estilo do rodapé */
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+
+    #top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    footer {
       background-color: #0077cc;
       color: white;
       text-align: center;
@@ -141,7 +175,7 @@
       margin-top: 60px;
     }
 
-    @media (max-width: 768px) { /* Regras para telas menores (responsividade) */
+    @media (max-width: 768px) {
       .grid-container {
         flex-direction: column;
         align-items: center;
@@ -158,36 +192,36 @@
 
 <body>
 
-    <header> <!-- Cabeçalho com título e descrição -->
+  <header>
     <h1>Curioso por Código? Aqui é seu lugar!</h1>
-    <p>Seu Portal de Curiosidades e Aprendizado em Tecnologia</p>
-    </header>
+    <p id="frase-motivacional">Seu Portal de Curiosidades e Aprendizado em Tecnologia</p>
+  </header>
 
-      <nav> <!-- Menu de navegação principal -->
-      <ul>
-          <li><a href="https://igodapazgomes.github.io/ProjetoFaculdade/5page">Início</a></li> <!-- Link para a página inicial -->
-          <li><a href="SOBRE.HTML">Sobre o Autor</a></li> <!-- Link para a página sobre -->
-          <li><a href="VIDEOS.HTML">Vídeos</a></li> <!-- Link para a página de vídeos -->
-          <li><a href="PDF.HTML">Aulas - PDF</a></li> <!-- Link para a página de PDFs -->
-      </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li><a href="HOME.HTML"><i class="fa fa-home"></i> Início</a></li>
+      <li><a href="SOBRE.HTML"><i class="fa fa-user"></i> Sobre o Autor</a></li>
+      <li><a href="VIDEOS.HTML"><i class="fa fa-video"></i> Vídeos</a></li>
+      <li><a href="PDF.HTML"><i class="fa fa-file-pdf"></i> Aulas - PDF</a></li>
+    </ul>
+  </nav>
 
-  <main> <!-- Conteúdo principal da página -->
+  <main>
 
-    <div class="logout-btn"> <!-- Botão de logout que redireciona -->
-      <button onclick="window.location.href='LOGUE.HTML'">Sair</button>
+    <div class="logout-btn">
+      <button onclick="window.location.href='LOGUE.HTML'" aria-label="Sair da conta">Sair</button>
     </div>
 
-    <div class="grid-container"> <!-- Container que agrupa os cards -->
-    <section class="card"> <!-- Card com campo de dúvidas -->
+    <div class="grid-container">
+      <section class="card">
         <h2>Deixe suas dúvidas</h2>
-        <img src="vscode.png" alt="Imagem do VSCode"> <!-- Imagem ilustrativa -->
+        <img src="imagens/vscode.png" alt="Logo do Visual Studio Code">
         <p>Insira abaixo:</p>
-        <input type="text" placeholder="Digite aqui..."> <!-- Campo de texto -->
-        <button>Pesquisar</button> <!-- Botão de ação -->
-    </section>
+        <input type="text" placeholder="Digite sua dúvida sobre HTML, CSS ou JS">
+        <button onclick="alert('Dúvida registrada!')">Pesquisar</button>
+      </section>
 
-    <section class="card"> <!-- Card com conteúdo educacional -->
+      <section class="card">
         <h2 style="color: #0077cc;">O que você aprenderá</h2>
         <ul>
           <li>Conheça o Visual Studio Code e seus principais atalhos</li>
@@ -195,41 +229,45 @@
           <li>Aprenda um pouco mais sobre marcações em HTML</li>
         </ul>
         <h3 style="color: #0077cc;">Público-alvo</h3>
-          <p>Qualquer um que tenha curiosidade sobre o assunto.</p>
-    </section>
+        <p>Qualquer um que tenha curiosidade sobre o assunto.</p>
+      </section>
 
-    <section class="card"> <!-- Card com curiosidades sobre tecnologia -->
+      <section class="card">
         <h2 style="color: #0077cc;">Curiosidade</h2>
         <h3>Saiba mais</h3>
-          <p style="text-align: justify;">
+        <p style="text-align: justify;">
           Conheça curiosidades incríveis sobre tecnologia e web. Descubra fatos rápidos e surpreendentes em HTML. Conteúdo leve, informativo e divertido. Ideal para quem ama aprender explorando.
-          </p>
-    </section>
+        </p>
+      </section>
 
-    <section class="card"> <!-- Card com benefícios do projeto -->
+      <section class="card">
         <h2 style="color: #0077cc;">Por que escolher nosso projeto?</h2>
         <ul>
           <li>Aprenda as habilidades mais procuradas com mais de 250.000 cursos em vídeo</li>
           <li>Escolha cursos lecionados por especialistas reais</li>
           <li>Estude no seu ritmo, com acesso vitalício no dispositivo móvel e no computador</li>
         </ul>
-    </section>
+      </section>
 
-    <section class="card"> <!-- Card com redes sociais -->
+      <section class="card">
         <h2 style="color: #0077cc;">Siga nossas redes</h2>
-        <div class="social-icons"> <!-- Ícones de redes sociais -->
-          <a href="https://instagram.com" target="_blank" style="color: #E1306C;">
+        <div class="social-icons">
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram" style="color: #E1306C;">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="https://www.youtube.com/channel/UCVruuc2zWQY6D0hOBJqlXdQ" target="_blank" style="color: #FF0000;">
+          <a href="https://www.youtube.com/channel/UCVruuc2zWQY6D0hOBJqlXdQ" target="_blank" aria-label="YouTube" style="color: #FF0000;">
             <i class="fab fa-youtube"></i>
           </a>
         </div>
-    </section>
-
+      </section>
+    </div>
   </main>
 
-  <footer> <!-- Rodapé com direitos autorais -->
+  <button id="top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Voltar ao topo">
+    ↑
+  </button>
+
+  <footer>
     <p>&copy; 2025 Meu Projeto ADS. Todos os direitos reservados à Igo da Paz Gomes - 202502227949</p>
   </footer>
 
