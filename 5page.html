@@ -1,0 +1,237 @@
+<!DOCTYPE html> <!-- Define que o documento é HTML5 -->
+<html lang="pt-br"> <!-- Define o idioma da página como português do Brasil -->
+
+<head>
+  <meta charset="UTF-8">  <!-- Define a codificação de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Torna a página responsiva em dispositivos móveis -->
+  <title>Meu Projeto ADS</title> <!-- Título da aba do navegador -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Importa ícones da biblioteca Font Awesome -->
+
+  <style>
+    * { /* Reset básico e fonte padrão */
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body { /* Estilo geral do corpo da página */
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header { /* Estilo do cabeçalho */
+      background-color: #0077cc;
+      color: rgb(245, 241, 241);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav { /* Estilo da barra de navegação */
+      background-color: #005fa3;
+    }
+
+    nav ul { /* Lista de links do menu */
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px 0;
+      gap: 20px;
+    }
+
+    nav a { /* Estilo dos links do menu */
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover { /* Efeito ao passar o mouse nos links */
+      background-color: #004080;
+    }
+
+    main { /* Área principal do conteúdo */
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .logout-btn { /* Botão de logout fixo no canto superior direito */
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .logout-btn button { /* Estilo do botão de logout */
+      padding: 10px 20px;
+      background-color: #cc0000;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .grid-container { /* Container que organiza os cards em grade */
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .card { /* Estilo dos cards de conteúdo */
+      flex: 1 1 300px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card ul { /* Estilo das listas dentro dos cards */
+      list-style: disc;
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .card img { /* Estilo da imagem dentro dos cards */
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .card input, .card button { /* Estilo dos inputs e botões dentro dos cards */
+      width: 90%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .card button { /* Estilo específico do botão dentro dos cards */
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+    }
+
+    .social-icons { /* Container dos ícones de redes sociais */
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .social-icons a { /* Estilo dos ícones sociais */
+      font-size: 40px;
+    }
+
+    footer { /* Estilo do rodapé */
+      background-color: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) { /* Regras para telas menores (responsividade) */
+      .grid-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logout-btn {
+        position: static;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+    <header> <!-- Cabeçalho com título e descrição -->
+    <h1>Curioso por Código? Aqui é seu lugar!</h1>
+    <p>Seu Portal de Curiosidades e Aprendizado em Tecnologia</p>
+    </header>
+
+      <nav> <!-- Menu de navegação principal -->
+      <ul>
+          <li><a href="https://igodapazgomes.github.io/ProjetoFaculdade/5page">Início</a></li> <!-- Link para a página inicial -->
+          <li><a href="SOBRE.HTML">Sobre o Autor</a></li> <!-- Link para a página sobre -->
+          <li><a href="VIDEOS.HTML">Vídeos</a></li> <!-- Link para a página de vídeos -->
+          <li><a href="PDF.HTML">Aulas - PDF</a></li> <!-- Link para a página de PDFs -->
+      </ul>
+    </nav>
+
+  <main> <!-- Conteúdo principal da página -->
+
+    <div class="logout-btn"> <!-- Botão de logout que redireciona -->
+      <button onclick="window.location.href='LOGUE.HTML'">Sair</button>
+    </div>
+
+    <div class="grid-container"> <!-- Container que agrupa os cards -->
+    <section class="card"> <!-- Card com campo de dúvidas -->
+        <h2>Deixe suas dúvidas</h2>
+        <img src="vscode.png" alt="Imagem do VSCode"> <!-- Imagem ilustrativa -->
+        <p>Insira abaixo:</p>
+        <input type="text" placeholder="Digite aqui..."> <!-- Campo de texto -->
+        <button>Pesquisar</button> <!-- Botão de ação -->
+    </section>
+
+    <section class="card"> <!-- Card com conteúdo educacional -->
+        <h2 style="color: #0077cc;">O que você aprenderá</h2>
+        <ul>
+          <li>Conheça o Visual Studio Code e seus principais atalhos</li>
+          <li>Aprenda a identificar e corrigir erros e fazer comentários</li>
+          <li>Aprenda um pouco mais sobre marcações em HTML</li>
+        </ul>
+        <h3 style="color: #0077cc;">Público-alvo</h3>
+          <p>Qualquer um que tenha curiosidade sobre o assunto.</p>
+    </section>
+
+    <section class="card"> <!-- Card com curiosidades sobre tecnologia -->
+        <h2 style="color: #0077cc;">Curiosidade</h2>
+        <h3>Saiba mais</h3>
+          <p style="text-align: justify;">
+          Conheça curiosidades incríveis sobre tecnologia e web. Descubra fatos rápidos e surpreendentes em HTML. Conteúdo leve, informativo e divertido. Ideal para quem ama aprender explorando.
+          </p>
+    </section>
+
+    <section class="card"> <!-- Card com benefícios do projeto -->
+        <h2 style="color: #0077cc;">Por que escolher nosso projeto?</h2>
+        <ul>
+          <li>Aprenda as habilidades mais procuradas com mais de 250.000 cursos em vídeo</li>
+          <li>Escolha cursos lecionados por especialistas reais</li>
+          <li>Estude no seu ritmo, com acesso vitalício no dispositivo móvel e no computador</li>
+        </ul>
+    </section>
+
+    <section class="card"> <!-- Card com redes sociais -->
+        <h2 style="color: #0077cc;">Siga nossas redes</h2>
+        <div class="social-icons"> <!-- Ícones de redes sociais -->
+          <a href="https://instagram.com" target="_blank" style="color: #E1306C;">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UCVruuc2zWQY6D0hOBJqlXdQ" target="_blank" style="color: #FF0000;">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+    </section>
+
+  </main>
+
+  <footer> <!-- Rodapé com direitos autorais -->
+    <p>&copy; 2025 Meu Projeto ADS. Todos os direitos reservados à Igo da Paz Gomes - 202502227949</p>
+  </footer>
+
+</body>
+</html>
