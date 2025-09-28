@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Projeto ADS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="imagens/vscode.png" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1, section {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    nav {
+      background-color: #005fa3;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px 0;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #004080;
+    }
+
+    .logout-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .logout-btn button {
+      padding: 10px 20px;
+      background-color: #cc0000;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-top: 60px;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    section h2 {
+      color: #0077cc;
+      margin-bottom: 30px;
+    }
+
+    .pdf-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .pdf-box {
+      max-width: 700px;
+      text-align: left;
+    }
+
+    .pdf-box h3 {
+      color: #0077cc;
+    }
+
+    .pdf-box a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    #top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      background-color: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 55px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logout-btn {
+        position: static;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      .pdf-box {
+        padding: 10px;
+      }
+
+      .pdf-box h3 {
+        font-size: 18px;
+      }
+
+      .pdf-box p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Curioso por Código? Aqui é seu lugar!</h1>
+    <p id="frase-motivacional">Seu Portal de Curiosidades e Aprendizado em Tecnologia</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="HOME.HTML" aria-label="Página inicial"><i class="fa fa-home"></i> Início</a></li>
+      <li><a href="SOBRE.HTML" aria-label="Sobre o autor"><i class="fa fa-user"></i> Sobre o Autor</a></li>
+      <li><a href="VIDEOS.HTML" aria-label="Vídeos"><i class="fa fa-video"></i> Vídeos</a></li>
+      <li><a href="PDF.HTML" aria-label="Aulas em PDF"><i class="fa fa-file-pdf"></i> Aulas - PDF</a></li>
+    </ul>
+  </nav>
+
+  <div class="logout-btn">
+    <button onclick="window.location.href='LOGUE.HTML'" aria-label="Sair da conta">Sair</button>
+  </div>
+
+  <main>
+    <section>
+      <h2>Materiais em PDF para Aprender HTML</h2>
+
+      <div class="pdf-container">
+        <div class="pdf-box">
+          <h3>Apostila de HTML - Universidade Federal Fluminense</h3>
+          <p>Material introdutório com estrutura de documentos, tags, imagens e links. Ideal para iniciantes.</p>
+          <a href="https://www.telecom.uff.br/pet/petws/downloads/apostilas/HTML.pdf" target="_blank">Abrir PDF</a>
+        </div>
+
+        <div class="pdf-box">
+          <h3>Apostila de Introdução à Linguagem HTML - FACCAT</h3>
+          <p>Explica a sintaxe básica, estrutura de páginas e uso de frames. Ótimo para reforçar fundamentos.</p>
+          <a href="https://fit.faccat.br/~fpereira/pagina/autoria/apostilas/apostila_html_mar2016.pdf" target="_blank">Abrir PDF</a>
+        </div>
+
+        <div class="pdf-box">
+          <h3>Curso Básico de HTML - UFPE</h3>
+          <p>Conteúdo completo com exemplos práticos, formulários, tabelas e listas. Excelente para prática.</p>
+          <a href="https://cin.ufpe.br/~prsg/html.pdf" target="_blank">Abrir PDF</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Voltar ao topo">↑</button>
+
+  <footer>
+    <p>&copy; 2025 Meu Projeto ADS. Todos os direitos reservados à Igo da Paz Gomes - 202502227949</p>
+  </footer>
+
+  <script>
+    const frases = [
+      "Seu Portal de Curiosidades e Aprendizado em Tecnologia",
+      "Explore, Aprenda, Evolua!",
+      "Cada linha de código é uma nova descoberta!",
+      "Transforme ideias em soluções digitais!"
+    ];
+    let index = 0;
+    setInterval(() => {
+      document.getElementById("frase-motivacional").textContent = frases[index];
+      index = (index + 1) % frases.length;
+    }, 4000);
+  </script>
+
+</body>
+</html>

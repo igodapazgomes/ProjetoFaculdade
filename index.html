@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área de Acesso | Meu Projeto ADS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="imagens/vscode.png" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 400px;
+      background-color: #fff;
+      padding: 35px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input:valid {
+      border-color: green;
+    }
+
+    input:invalid {
+      border-color: red;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-wrapper i {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #0077cc;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .login-box button:hover {
+      background-color: #005fa3;
+    }
+
+    .social-box {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 30px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+
+    .social-box a {
+      font-size: 40px;
+      transition: transform 0.3s;
+    }
+
+    .social-box a:hover {
+      transform: scale(1.2);
+    }
+
+    footer {
+      background-color: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 70px;
+    }
+
+    @media (max-width: 600px) {
+      .social-box {
+        gap: 20px;
+      }
+
+      .social-box a {
+        font-size: 30px;
+      }
+
+      .login-box {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Curioso por Código? Aqui é seu lugar!</h1>
+    <p id="frase-motivacional">Seu Portal de Curiosidades e Aprendizado em Tecnologia</p>
+    <p>Bem-vindo!</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Objetivos do Projeto</h2>
+      <p>Aprender HTML e CSS, desenvolver uma página web responsiva e implementar boas práticas de design.</p>
+    </section>
+
+    <section class="login-box">
+      <h2>Login</h2>
+      <form onsubmit="return validarLogin()">
+        <label for="username">Usuário:</label><br>
+        <input type="text" id="username" name="username" placeholder="Digite seu usuário" required><br>
+
+        <label for="password">Senha:</label><br>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+          <i class="fa fa-eye" onclick="toggleSenha()" aria-label="Mostrar ou ocultar senha"></i>
+        </div><br>
+
+        <button type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <section class="social-box">
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram" style="color: #E1306C;">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.youtube.com/channel/UCVruuc2zWQY6D0hOBJqlXdQ" target="_blank" aria-label="YouTube" style="color: #FF0000;">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Meu Projeto ADS. Todos os direitos reservados à Igo da Paz Gomes - 202502227949</p>
+  </footer>
+
+  <script>
+    function validarLogin() {
+      const usuario = document.getElementById("username").value.trim();
+      const senha = document.getElementById("password").value.trim();
+
+      if (usuario === "igo" && senha === "minhaSenhaSegura123") {
+        alert("Bem-vindo, Igo!");
+        window.location.href = "http://127.0.0.1:5500/Meu%20projeto%202%20semestre/HOME.HTML";
+        return false;
+      } else {
+        alert("Usuário ou senha incorretos.");
+        return false;
+      }
+    }
+
+    function toggleSenha() {
+      const campo = document.getElementById("password");
+      campo.type = campo.type === "password" ? "text" : "password";
+    }
+
+    const frases = [
+      "Seu Portal de Curiosidades e Aprendizado em Tecnologia",
+      "Explore, Aprenda, Evolua!",
+      "Cada linha de código é uma nova descoberta!",
+      "Transforme ideias em realidade com programação!"
+    ];
+
+    let index = 0;
+    setInterval(() => {
+      document.getElementById("frase-motivacional").textContent = frases[index];
+      index = (index + 1) % frases.length;
+    }, 4000);
+  </script>
+
+</body>
+</html>
